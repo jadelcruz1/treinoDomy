@@ -1,73 +1,109 @@
-# React + TypeScript + Vite
+# 🚀 Projeto React + TypeScript com Autenticação
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é uma aplicação básica utilizando:
 
-Currently, two official plugins are available:
+-   React
+-   TypeScript
+-   React Router
+-   Context API para autenticação
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+O projeto possui:
 
-## React Compiler
+-   ✅ Tela de Login
+-   ✅ Autenticação simulada
+-   ✅ Rotas protegidas
+-   ✅ Dashboard
+-   ✅ Logout
+-   ✅ Estrutura organizada
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+------------------------------------------------------------------------
 
-## Expanding the ESLint configuration
+# 📦 Tecnologias Utilizadas
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+-   React
+-   TypeScript
+-   Vite
+-   React Router DOM
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+------------------------------------------------------------------------
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+# 🛠️ Como Criar o Projeto
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+``` bash
+npm create vite@latest treinoDomy
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Selecione: - React - TypeScript
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Depois:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+``` bash
+cd  treinoDomy
+npm install
+npm install react-router-dom
+npm run dev
 ```
+
+------------------------------------------------------------------------
+
+# 📁 Estrutura do Projeto
+
+    src/
+     ├── pages/
+     │    ├── Login.tsx
+     │    └── Dashboard.tsx
+     ├── routes/
+     │    └── PrivateRoute.tsx
+     ├── context/
+     │    └── AuthContext.tsx
+     ├── App.tsx
+     └── main.tsx
+
+------------------------------------------------------------------------
+
+# 🔐 Funcionamento da Autenticação
+
+A autenticação é feita via Context API.
+
+Credenciais mock:
+
+Email:
+
+    admin@email.com
+
+Senha:
+
+    123456
+
+Se as credenciais estiverem corretas: - O usuário é autenticado - É
+redirecionado para `/dashboard`
+
+Se estiverem incorretas: - Exibe alerta de erro
+
+------------------------------------------------------------------------
+
+# 🔒 Rota Privada
+
+O componente `PrivateRoute` verifica:
+
+    isAuthenticated === true
+
+Caso contrário, redireciona para:
+
+    /
+
+------------------------------------------------------------------------
+
+# 🏗 Melhorias Futuras
+
+-   Implementar JWT real
+-   Persistência com localStorage
+-   Integração com backend
+-   Testes automatizados
+-   Layout com Tailwind
+
+------------------------------------------------------------------------
+
+# 👨‍💻 Autor
+
+Projeto base para estudos de autenticação em React + TypeScript.
